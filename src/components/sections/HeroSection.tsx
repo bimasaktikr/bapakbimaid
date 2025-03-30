@@ -17,8 +17,8 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({
-  name = "Jane Doe",
-  tagline = "Full Stack Developer & UI/UX Designer",
+  name = "Bima Sakti Krisdianto",
+  tagline = "Full Stack Developer, Data Engineer",
   ctaText = "View My Work",
   profileImage = "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
   socialLinks = {
@@ -84,17 +84,17 @@ const HeroSection = ({
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen w-full bg-white dark:bg-gray-900 flex items-center justify-center overflow-hidden"
+      className="relative flex items-center justify-center w-full h-screen overflow-hidden bg-white dark:bg-gray-900"
     >
       {/* Animated background elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 opacity-50"></div>
+      <div className="absolute inset-0 opacity-50 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800"></div>
 
       {/* Animated particles */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full bg-blue-400 dark:bg-blue-600 opacity-10"
+            className="absolute bg-blue-400 rounded-full dark:bg-blue-600 opacity-10"
             style={{
               width: Math.random() * 40 + 10,
               height: Math.random() * 40 + 10,
@@ -119,13 +119,13 @@ const HeroSection = ({
 
       {/* Content container */}
       <motion.div
-        className="container mx-auto px-4 z-10 flex flex-col md:flex-row items-center justify-between gap-12"
+        className="container z-10 flex flex-col items-center justify-between gap-12 px-4 mx-auto md:flex-row"
         style={{ opacity, y, scale }}
       >
         {/* Text content */}
         <div className="flex-1 text-center md:text-left">
           <motion.h1
-            className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4"
+            className="mb-4 text-4xl font-bold text-gray-900 md:text-6xl dark:text-white"
             initial="hidden"
             animate="visible"
             custom={0}
@@ -133,7 +133,7 @@ const HeroSection = ({
           >
             Hello, I'm{" "}
             <motion.span
-              className="text-blue-600 dark:text-blue-400 inline-block"
+              className="inline-block text-blue-600 dark:text-blue-400"
               animate={{
                 color: ["#3b82f6", "#8b5cf6", "#3b82f6"],
                 textShadow: [
@@ -149,7 +149,7 @@ const HeroSection = ({
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8"
+            className="mb-8 text-xl text-gray-700 md:text-2xl dark:text-gray-300"
             initial="hidden"
             animate="visible"
             custom={1}
@@ -159,7 +159,7 @@ const HeroSection = ({
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+            className="flex flex-col justify-center gap-4 sm:flex-row md:justify-start"
             initial="hidden"
             animate="visible"
             custom={2}
@@ -167,11 +167,11 @@ const HeroSection = ({
           >
             <Button
               onClick={onCtaClick}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 rounded-lg text-lg relative overflow-hidden group"
+              className="relative px-8 py-6 overflow-hidden text-lg text-white bg-blue-600 rounded-lg hover:bg-blue-700 group"
             >
               <span className="relative z-10">{ctaText}</span>
               <motion.span
-                className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100"
+                className="absolute inset-0 opacity-0 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:opacity-100"
                 initial={{ x: "-100%" }}
                 whileHover={{ x: 0 }}
                 transition={{ duration: 0.4 }}
@@ -180,14 +180,14 @@ const HeroSection = ({
 
             <Button
               variant="outline"
-              className="border-blue-600 text-blue-600 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-gray-800 px-8 py-6 rounded-lg text-lg relative overflow-hidden group"
+              className="relative px-8 py-6 overflow-hidden text-lg text-blue-600 border-blue-600 rounded-lg hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-gray-800 group"
             >
               <span className="relative z-10 flex items-center">
-                <Download className="mr-2 h-5 w-5" />
+                <Download className="w-5 h-5 mr-2" />
                 Download Resume
               </span>
               <motion.span
-                className="absolute inset-0 bg-blue-50 dark:bg-gray-800 opacity-0 group-hover:opacity-100"
+                className="absolute inset-0 opacity-0 bg-blue-50 dark:bg-gray-800 group-hover:opacity-100"
                 initial={{ y: "100%" }}
                 whileHover={{ y: 0 }}
                 transition={{ duration: 0.3 }}
@@ -196,7 +196,7 @@ const HeroSection = ({
           </motion.div>
 
           {/* Social links */}
-          <div className="flex gap-4 mt-8 justify-center md:justify-start">
+          <div className="flex justify-center gap-4 mt-8 md:justify-start">
             {[
               socialLinks.github,
               socialLinks.linkedin,
@@ -207,7 +207,7 @@ const HeroSection = ({
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-colors relative overflow-hidden"
+                className="relative p-3 overflow-hidden text-gray-700 transition-colors bg-gray-100 rounded-full hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-300"
                 initial="hidden"
                 animate="visible"
                 custom={i}
@@ -222,7 +222,7 @@ const HeroSection = ({
                 {i === 1 && <Linkedin size={24} />}
                 {i === 2 && <Twitter size={24} />}
                 <motion.span
-                  className="absolute inset-0 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 opacity-0"
+                  className="absolute inset-0 opacity-0 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900"
                   whileHover={{ opacity: 0.5 }}
                   transition={{ duration: 0.3 }}
                 />
@@ -232,11 +232,11 @@ const HeroSection = ({
         </div>
 
         {/* Profile image */}
-        <div className="flex-1 flex justify-center md:justify-end">
+        <div className="flex justify-center flex-1 md:justify-end">
           <motion.div className="relative" animate={controls}>
             {/* Animated decorative elements */}
             <motion.div
-              className="absolute -inset-4 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 opacity-20 blur-xl"
+              className="absolute rounded-full -inset-4 bg-gradient-to-r from-blue-400 to-purple-500 opacity-20 blur-xl"
               animate={{
                 scale: [1, 1.2, 1],
                 opacity: [0.2, 0.3, 0.2],
@@ -251,14 +251,14 @@ const HeroSection = ({
 
             {/* Rotating circles */}
             <motion.div
-              className="absolute -inset-12 rounded-full border-2 border-blue-200 dark:border-blue-800 opacity-20"
+              className="absolute border-2 border-blue-200 rounded-full -inset-12 dark:border-blue-800 opacity-20"
               style={{ borderRadius: "50%" }}
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             />
 
             <motion.div
-              className="absolute -inset-8 rounded-full border-2 border-purple-200 dark:border-purple-800 opacity-20"
+              className="absolute border-2 border-purple-200 rounded-full -inset-8 dark:border-purple-800 opacity-20"
               style={{ borderRadius: "50%" }}
               animate={{ rotate: -360 }}
               transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
@@ -267,7 +267,7 @@ const HeroSection = ({
             <motion.img
               src={profileImage}
               alt={name}
-              className="relative w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-white dark:border-gray-800 shadow-xl"
+              className="relative object-cover w-64 h-64 border-4 border-white rounded-full shadow-xl md:w-80 md:h-80 dark:border-gray-800"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -279,7 +279,7 @@ const HeroSection = ({
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
+        className="absolute transform -translate-x-1/2 cursor-pointer bottom-8 left-1/2"
         initial={{ opacity: 0 }}
         animate={{
           opacity: [0, 1, 0],
@@ -298,7 +298,7 @@ const HeroSection = ({
           }
         }}
       >
-        <ArrowDown className="h-8 w-8 text-gray-600 dark:text-gray-400" />
+        <ArrowDown className="w-8 h-8 text-gray-600 dark:text-gray-400" />
       </motion.div>
     </section>
   );
